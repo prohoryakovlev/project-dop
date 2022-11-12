@@ -27,6 +27,7 @@ function App() {
             <Button name={"MyYouTubeChanel-1"} callBack={() => Button1Foo("In Vasya", 21, "Live in Minsk")}/>
             <Button name={"MyYouTubeChanel-2"} callBack={() => Button2Foo("Im Ivan")}/>
             <Button name={"MyYouTubeChanel-3"} callBack={() => Button3Foo("Im stupid Button")}/>
+            <Button name={"MyYouTubeChanel-3"} callBack={() => Button3Foo("Im stupid Button")}/>
             {/*<Button name={"Delete"}/>*/}
 
         </div>
