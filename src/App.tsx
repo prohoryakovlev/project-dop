@@ -1,38 +1,30 @@
-import React from 'react';
+import React, {useState} from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Button from "./components/Button";
 
 
 function App() {
-    const Button1Foo = (subscriber: string, age: number, address: string) => {
-        console.log(subscriber, age, address)
-    }
-    const Button2Foo = (subscriber: string) => {
-        console.log(subscriber)
-    }
-    const Button3Foo = (subsriber: string) => {
-        console.log(subsriber)
-    }
-
+    const [message, setMessage] = useState([
+            {message: 'message1'},
+            {message: 'message2'},
+            {message: 'message3'},
+            {message: 'message4'},
+            {message: 'message5'}
+        ]
+    )
     return (
-
         <div className="App">
-            {/*<button>*/}
-            {/*    MyYouTubeChanel-1*/}
-            {/*</button>*/}
-            {/*<button>*/}
-            {/*    MyYouTubeChanel-2*/}
-            {/*</button>*/}
-            <Button name={"MyYouTubeChanel-1"} callBack={() => Button1Foo("In Vasya", 21, "Live in Minsk")}/>
-            <Button name={"MyYouTubeChanel-2"} callBack={() => Button2Foo("Im Ivan")}/>
-            <Button name={"MyYouTubeChanel-3"} callBack={() => Button3Foo("Im stupid Button")}/>
-            <Button name={"MyYouTubeChanel-3"} callBack={() => Button3Foo("Im stupid Button")}/>
-            {/*<Button name={"Delete"}/>*/}
-
+            <div>
+                <input />
+                <button>+</button>
+            </div>
+            {message.map((el, index) => {
+                return (
+                    <div key={index}>{el.message}</div>
+                )
+            })}
         </div>
-
     );
 }
-
 export default App;
