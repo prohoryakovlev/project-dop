@@ -4,7 +4,6 @@ import './App.css';
 import {Fullinput} from "./components/Fullinput";
 
 
-
 function App() {
     const [message, setMessage] = useState([
             {message: 'message1'},
@@ -14,6 +13,10 @@ function App() {
             {message: 'message5'}
         ]
     )
+    const addTMessage = (title: string) => {
+        let newMessage = {message: title};
+            setMessage([newMessage, ...message])
+    }
     return (
         <div className="App">
 
@@ -21,7 +24,7 @@ function App() {
             {/*    <input />*/}
             {/*    <button>+</button>*/}
             {/*</div>*/}
-            <Fullinput/>
+            <Fullinput addTMessage={addTMessage}/>
             {message.map((el, index) => {
                 return (
                     <div key={index}>{el.message}</div>
@@ -30,4 +33,5 @@ function App() {
         </div>
     );
 }
+
 export default App;
