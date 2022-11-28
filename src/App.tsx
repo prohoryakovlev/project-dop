@@ -2,6 +2,8 @@ import React, {useState} from 'react';
 import logo from './logo.svg';
 import './App.css';
 import {Fullinput} from "./components/Fullinput";
+import {Input} from "./components/Input";
+import {Button} from "./components/Button";
 
 
 function App() {
@@ -13,18 +15,23 @@ function App() {
             {message: 'message5'}
         ]
     )
+
+    let [title, setTitle] = useState('')
+
     const addTMessage = (title: string) => {
         let newMessage = {message: title};
-            setMessage([newMessage, ...message])
+        setMessage([newMessage, ...message])
+    }
+    const callBackButtonHandler = () => {
+        addTMessage(title)
+        setTitle('')
     }
     return (
         <div className="App">
 
-            {/*<div>*/}
-            {/*    <input />*/}
-            {/*    <button>+</button>*/}
-            {/*</div>*/}
-            <Fullinput addTMessage={addTMessage}/>
+            <Input setTitle={setTitle} title={title}/>
+            <Button name={"+"} callBack={callBackButtonHandler}/>
+
             {message.map((el, index) => {
                 return (
                     <div key={index}>{el.message}</div>
